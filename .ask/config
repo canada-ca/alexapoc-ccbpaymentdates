@@ -1,0 +1,40 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.b8b1c76e-574b-4ba1-854f-eaad0682dd65",
+      "was_cloned": false,
+      "merge": {
+        "manifest": {
+          "apis": {
+            "custom": {
+              "endpoint": {
+                "uri": "ask-custom-ccbpaymentdates-default"
+              }
+            }
+          }
+        }
+      },
+      "resources": {
+        "manifest": {
+          "eTag": "3539247aeda6ca561f7939dd44afbfac"
+        },
+        "interactionModel": {
+          "en-CA": {
+            "eTag": "de4a85ff6be8ab75fb756e97296dc532"
+          }
+        },
+        "lambda": [
+          {
+            "arn": "arn:aws:lambda:us-east-1:590012697664:function:ask-custom-ccbpaymentdates-default",
+            "functionName": "arn:aws:lambda:us-east-1:590012697664:function:ask-custom-ccbpaymentdates-default",
+            "awsRegion": "us-east-1",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "31ec7e4c-bf1f-492e-a32c-0643ba9834bf"
+          }
+        ]
+      }
+    }
+  }
+}
