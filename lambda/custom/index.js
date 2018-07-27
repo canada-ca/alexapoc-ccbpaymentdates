@@ -123,11 +123,7 @@ const NextPaymentIntentHandler = {
       .withSimpleCard('Hello World', speechText)
       .withShouldEndSession(false)
       .getResponse();
-    }
-
-
-
-
+    }    
   },
 };
 
