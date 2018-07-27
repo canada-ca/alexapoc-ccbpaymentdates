@@ -1,0 +1,76 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "cra",
+      "types": [
+
+      ],
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+
+          ]
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [
+
+          ],
+          "samples": [
+            "hello",
+            "say hello",
+            "say hello world"
+          ]
+        },
+        {
+          "name": "NextPaymentIntent",
+          "slots": [
+
+
+          ],
+          "samples": [
+            "when is my next payment",
+            "when is my next canada child benefit payment",
+            "when is my next ccb payment"
+          ]
+        },
+        {
+          "name": "CCBDescIntent",
+          "slots": [
+
+          ],
+          "samples": [
+            "what is ccb",
+            "what is canada child benefit",
+            "tell me about ccb"
+          ]
+        },
+        {
+          "name": "RRSPMaxContributionIntent",
+          "slots": [
+
+          ],
+          "samples": [
+            "what is my maximum rrsp contribution",
+            "what is my max rrsp contribution",
+            "rrsp",
+            "max rrsp"
+          ]
+        }
+      ]
+    }
+  }
+}
