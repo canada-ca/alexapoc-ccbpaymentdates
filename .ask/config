@@ -16,11 +16,14 @@
       },
       "resources": {
         "manifest": {
-          "eTag": "3539247aeda6ca561f7939dd44afbfac"
+          "eTag": "dd97bc09bd33c85e5376ee21ea03c0fe"
         },
         "interactionModel": {
           "en-CA": {
-            "eTag": "b04ebf6c9c5ae955300eac9b84b403ac"
+            "eTag": "49b117caddd7ca84dfa11836501a2e7d"
+          },
+          "fr-CA": {
+            "eTag": "deaa146648666caeaa240fad1b1c8413"
           }
         },
         "lambda": [
@@ -31,7 +34,16 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "ba909fe0-44b7-4122-b8c2-ab4f3cce81c8"
+            "revisionId": "1ef08d48-4c28-4283-8ba9-26ff32084f89"
+          },
+          {
+            "arn": "arn:aws:lambda:us-east-1:329473976224:function:ask-custom-ccbpaymentdates-default",
+            "functionName": "arn:aws:lambda:us-east-1:329473976224:function:ask-custom-ccbpaymentdates-default",
+            "awsRegion": "us-east-1",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "df9a686b-a3f7-4c8f-b6f7-2525484917be"
           }
         ]
       }

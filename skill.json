@@ -11,6 +11,16 @@
           ],
           "name": "ccbpaymentdates",
           "description": "Canada Child Benefit"
+        },
+        "fr-CA": {
+          "summary": "French Returns Canada Child Benefit payment dates",
+          "examplePhrases": [
+            "Alexa open canada revenue agency",
+            "Alexa open cra",
+            "Alexa canada revenue"
+          ],
+          "name": "ccbpaymentdates",
+          "description": "French Canada Child Benefit"
         }
       },
       "isAvailableWorldwide": true,

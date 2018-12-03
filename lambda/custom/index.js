@@ -12,12 +12,12 @@ const LaunchRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Welcome to Canada Revenue Agency! How can I help you?';
+    const speechText = 'Welcome to Canada Revenue Agency! You can ask about the Canada Child Benefit or the 2019 tax filing deadline.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .withSimpleCard('CRA', speechText)
       .getResponse();
   },
 };
@@ -43,12 +43,12 @@ const CCBDescIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'CCBDescIntent';
   },
   handle(handlerInput) {
-    const speechText = 'The Canada child benefit (CCB) is a tax-free monthly payment made to eligible families to help them with the cost of raising children under 18 years of age.';
+    const speechText = 'The Canada Child Benefit (CCB) is a tax-free monthly payment made to eligible families to help them with the cost of raising children under 18 years of age.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('CCB Description', speechText)
-      .withShouldEndSession(false)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
       .getResponse();
   },
 };
@@ -63,8 +63,8 @@ const RRSPMaxContributionIntentHandler = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('RRSP Maximum Contribution', speechText)
-      .withShouldEndSession(false)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
       .getResponse();
   },
 };
@@ -91,8 +91,8 @@ const NextPaymentIntentHandler = {
 
       return handlerInput.responseBuilder
         .speak(speechText)
-        .withSimpleCard('Payment Dates', speechText)
-        .withShouldEndSession(false)
+        .withSimpleCard('CRA', speechText)
+        .withShouldEndSession(true)
         .getResponse();
     }
     if (returnedPaymentDates.length > 1) {
@@ -103,25 +103,25 @@ const NextPaymentIntentHandler = {
 
       return handlerInput.responseBuilder
         .speak(speechText)
-        .withSimpleCard('Payment Dates', speechText)
-        .withShouldEndSession(false)
+        .withSimpleCard('CRA', speechText)
+        .withShouldEndSession(true)
         .getResponse();
     }
 
     if (returnedPaymentDates.length == 1) {
 
       var mthNum = returnedPaymentDates[0]['mth'];
-      mthNum = mthNum + 1;
+      mthNum = mthNum;
       var mthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];  
 
     //speechText = 'Month: ' + returnedPaymentDates[0]['mth'] + ' Day: '  + returnedPaymentDates[0]['day'] + ' Year: '  + returnedPaymentDates[0]['year'];
 
-    speechText =  'Your Canada child benefit (CCB) next payment is ' + mthNames[mthNum] + ' '  + returnedPaymentDates[0]['day'] + ' '  + returnedPaymentDates[0]['year'];
+    speechText =  'Your Canada Child Benefit (CCB) next payment is ' + mthNames[mthNum] + ' '  + returnedPaymentDates[0]['day'] + ', '  + returnedPaymentDates[0]['year'] + '.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
-      .withShouldEndSession(false)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
       .getResponse();
     }    
   },
@@ -159,8 +159,105 @@ async function getNextPayment(currYear, currMth, currDay) {
   console.log('Number of paymentDates returned: ' + paymentDates.length);
 
   return paymentDates;
-}
+};
 
+const TaxFilingDeadlineIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'TaxFilingDeadlineIntent';
+  },
+  handle(handlerInput) {
+    const speechText = 'The Tax Filing Deadline is April 30, 2019.';
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
+      .getResponse();
+  },
+};
+
+
+const RRSPContributionDeadlineIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'RRSPContributionDeadlineIntent';
+  },
+  handle(handlerInput) {
+    const speechText = 'The last date you can contribute to your RRSP is March 1, 2019.';
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
+      .getResponse();
+  },
+};
+
+const ITEIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'ITEIntent';
+  },
+  handle(handlerInput) {
+    const speechText = 'The Individual Tax Enquiries telephone number is 1-800-959-8281.';
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
+      .getResponse();
+  },
+};
+
+
+const IncomeTaxPaymentArrIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'IncomeTaxPaymentArrIntent';
+  },
+  handle(handlerInput) {
+    const speechText = 'The Income Tax Payment Arrangements telephone number is 1-888-863-8657.';
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
+      .getResponse();
+  },
+};
+
+const BobHamiltonIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'BobHamiltonIntent';
+  },
+  handle(handlerInput) {
+    const speechText = 'Bob Hamilton was appointed as the Commissioner of the Canada Revenue Agency (CRA) effective August 1, 2016. Prior to joining the Canada Revenue Agency, Bob served as Deputy Minister of Environment Canada, and Deputy Minister of Natural Resources Canada. He received his Honours BA and Masters degrees in Economics from the University of Western Ontario.';
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
+      .getResponse();
+  },
+};
+
+const CCBNextPaymentIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'CCBNextPaymentIntent';
+  },
+  handle(handlerInput) {
+    const speechText = 'Your Canada Child Benefit (CCB) next payment is December 13, 2018.';
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withSimpleCard('CRA', speechText)
+      .withShouldEndSession(true)
+      .getResponse();
+  },
+};
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -228,6 +325,12 @@ exports.handler = skillBuilder
     CCBDescIntentHandler,
     RRSPMaxContributionIntentHandler,
     NextPaymentIntentHandler,
+    TaxFilingDeadlineIntentHandler,
+    RRSPContributionDeadlineIntentHandler,
+    ITEIntentHandler,
+    IncomeTaxPaymentArrIntentHandler,
+    BobHamiltonIntentHandler,
+    CCBNextPaymentIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler
